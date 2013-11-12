@@ -13,7 +13,7 @@ session = requests.Session()
 
 def json_api_response(api_url, query_params):
     try:
-        response = session.get(api_url, params=query_params)
+        response = session.post(api_url, data=query_params)
     except requests.RequestException as exc:
         raise APIConnectionError(
             message='Network communication error: {0}'.format(exc.args[0])
